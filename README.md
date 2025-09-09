@@ -1,1 +1,193 @@
-# fromthedrain
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DrainGlider - The Simple Fix for Stuck Pool Robots</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0077be, #00c6ff);
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        /* Simple animation for sections appearing */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-section {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header Section -->
+    <header class="hero-gradient text-white shadow-lg">
+        <div class="container mx-auto px-6 py-16 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">
+                Stop Babysitting Your Pool Robot.
+            </h1>
+            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+                Introducing DrainGlider: The simple, innovative tool that prevents your pool cleaner from ever getting stuck on the main drain again.
+            </p>
+            <img 
+                src="https://placehold.co/800x400/FFFFFF/0077BE?text=Pool+Robot+Gliding+Effortlessly" 
+                alt="A pool cleaning robot moving smoothly over a main drain thanks to the DrainGlider" 
+                class="rounded-lg shadow-2xl mx-auto mb-8 border-4 border-white"
+                onerror="this.onerror=null;this.src='https://placehold.co/800x400/FFFFFF/CCCCCC?text=Image+Not+Found';"
+            >
+            <a href="#interest-form" class="cta-button bg-white text-blue-600 font-bold py-3 px-8 rounded-full text-lg inline-block">
+                I'm Interested! Tell Me More
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12 md:py-20">
+
+        <!-- The Problem Section -->
+        <section class="text-center max-w-4xl mx-auto mb-16 md:mb-24 fade-in-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Sound Familiar?</h2>
+            <p class="text-lg text-gray-600 mb-8">
+                You invested in an automatic pool cleaner for convenience, but it's a constant headache. You look out the window only to see it trapped, wheels spinning uselessly on the main drain, leaving your pool half-cleaned and your electricity wasted.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <!-- Frustration Point 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                    <div class="flex items-center mb-3">
+                        <svg class="w-8 h-8 text-red-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h3 class="text-xl font-semibold">Constant Rescues</h3>
+                    </div>
+                    <p class="text-gray-600">You have to constantly check on your robot and pull it off the drain, defeating the whole purpose of an "automatic" cleaner.</p>
+                </div>
+                <!-- Frustration Point 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                    <div class="flex items-center mb-3">
+                        <svg class="w-8 h-8 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        <h3 class="text-xl font-semibold">Wasted Energy</h3>
+                    </div>
+                    <p class="text-gray-600">A stuck robot is a running robot. It wastes electricity without cleaning anything, driving up your utility bills.</p>
+                </div>
+                <!-- Frustration Point 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                     <div class="flex items-center mb-3">
+                        <svg class="w-8 h-8 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        <h3 class="text-xl font-semibold">Incomplete Cleaning</h3>
+                    </div>
+                    <p class="text-gray-600">When the cleaning cycle is interrupted, your pool is left with dirty spots, algae buildup, and debris.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- The Solution Section -->
+        <section class="bg-white py-16 md:py-24 rounded-lg shadow-xl border border-gray-200 fade-in-section">
+            <div class="text-center max-w-4xl mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The Effortless Solution is Here.</h2>
+                <p class="text-lg text-gray-600 mb-10">
+                    DrainGlider is a patent-pending drain cover attachment that creates a smooth, ramped surface. Your pool robot glides right over it, every single time. No more getting stuck. Ever.
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                    <img 
+                        src="https://placehold.co/400x300/0077BE/FFFFFF?text=DrainGlider+Product" 
+                        alt="A close-up of the sleek, durable DrainGlider product" 
+                        class="rounded-lg shadow-lg w-full md:w-1/2"
+                        onerror="this.onerror=null;this.src='https://placehold.co/400x300/CCCCCC/FFFFFF?text=Image+Not+Found';"
+                    >
+                    <ul class="text-left space-y-4 text-lg w-full md:w-1/2">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span><strong class="font-semibold">Installs in Seconds:</strong> No tools needed. Just place it over your existing VGB-compliant drain cover.</span>
+                        </li>
+                        <li class="flex items-start">
+                             <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span><strong class="font-semibold">Universal Design:</strong> Compatible with all major pool robot brands and standard main drains.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span><strong class="font-semibold">Durable & Safe:</strong> Made from chemical-resistant, pool-safe polymer that won't impede water flow.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action / Interest Form Section -->
+        <section id="interest-form" class="mt-16 md:mt-24 text-center max-w-3xl mx-auto fade-in-section">
+            <div id="form-container">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ready for a Cleaner Pool with Less Hassle?</h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    We're finalizing production and will be launching soon. Enter your email below to be the first to know when DrainGlider is available and to lock in an exclusive early-bird discount.
+                </p>
+                <form id="signup-form" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                    <input 
+                        type="email" 
+                        id="email-input"
+                        placeholder="Enter your email address" 
+                        required
+                        class="flex-grow w-full px-4 py-3 rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg"
+                    >
+                    <button type="submit" class="cta-button bg-blue-600 text-white font-bold py-3 px-8 rounded-md text-lg hover:bg-blue-700">
+                        Notify Me
+                    </button>
+                </form>
+                <p class="text-sm text-gray-500 mt-4">We respect your privacy. No spam, ever.</p>
+            </div>
+            <!-- Thank You Message -->
+            <div id="thank-you-message" class="hidden text-center bg-green-100 border-l-4 border-green-500 text-green-700 p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold mb-2">Thank You!</h3>
+                <p class="text-lg">You're on the list! We'll be in touch with exciting news and your special offer very soon.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16 md:mt-24">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 DrainGlider. All rights reserved.</p>
+            <p class="text-sm text-gray-400 mt-2">A simple solution to a frustrating problem.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to handle the form submission and show a thank you message
+        const form = document.getElementById('signup-form');
+        const formContainer = document.getElementById('form-container');
+        const thankYouMessage = document.getElementById('thank-you-message');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from actually submitting
+            
+            const emailInput = document.getElementById('email-input');
+            
+            // Basic email validation
+            if (emailInput.value && emailInput.checkValidity()) {
+                // In a real application, you would send the email to your server here.
+                // For this demonstration, we'll just hide the form and show the message.
+                console.log('Email captured:', emailInput.value);
+                
+                formContainer.classList.add('hidden');
+                thankYouMessage.classList.remove('hidden');
+                window.scrollTo({ top: thankYouMessage.offsetTop - 100, behavior: 'smooth' });
+            } else {
+                // Simple feedback for invalid email
+                emailInput.classList.add('border-red-500');
+                emailInput.focus();
+            }
+        });
+    </script>
+
+</body>
+</html>
