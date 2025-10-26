@@ -133,7 +133,7 @@
                 <p class="text-lg text-gray-600 mb-8">
                     We're finalizing production and will be launching soon. Enter your email below to be the first to know when DrainGuard is available and to lock in an exclusive early-bird discount.
                 </p>
-                <form id="signup-form" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                <form id="signup-form" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" action="https://formsubmit.co/msantoro@gmail.com" method="POST">
                     <input 
                         type="email" 
                         id="email-input"
@@ -174,10 +174,7 @@
             
             const emailInput = document.getElementById('email-input');
             
-            // Basic email validation
             if (emailInput.value && emailInput.checkValidity()) {
-                // In a real application, you would send the email to your server here.
-                // For this demonstration, we'll just hide the form and show the message.
                 console.log('Email captured:', emailInput.value);
                 
                 formContainer.classList.add('hidden');
