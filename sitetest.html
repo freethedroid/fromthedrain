@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Fund Name | Asymmetric Value</title>
+    <style>
+        /* --- RESET & BASE STYLES --- */
+        :root {
+            --primary-color: #0f172a; /* Deep Blue/Black - Institutional */
+            --accent-color: #b45309; /* Muted Gold/Bronze - Wealth */
+            --bg-color: #f8f9fa; /* Off-white - Paper feel */
+            --text-color: #334155;
+            --max-width: 1100px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif; /* Clean Sans for body */
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Typography for that "Financial" look */
+        h1, h2, h3, h4 {
+            font-family: 'Georgia', 'Times New Roman', serif; /* Serif for Headers */
+            color: var(--primary-color);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        
+        /* --- UTILITIES --- */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid var(--primary-color);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Georgia', serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .nav-links a:hover { color: var(--accent-color); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 100px 0;
+            text-align: left; /* Left align feels more "letter-like"/institutional */
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            color: #475569;
+        }
+
+        /* --- PHILOSOPHY GRID --- */
+        .philosophy {
+            padding: 80px 0;
+            background-color: #fff;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* --- PERFORMANCE / METRICS --- */
+        .metrics {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+        }
+
+        .metrics h2 { color: #fff; margin-bottom: 40px; }
+        
+        .stat-box {
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            font-family: 'Georgia', serif;
+        }
+
+        /* --- DISCLAIMER / FOOTER (CRITICAL FOR 506c) --- */
+        footer {
+            background-color: #fff;
+            padding: 60px 0;
+            font-size: 0.75rem;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .disclaimer-box {
+            background-color: #f1f5f9;
+            padding: 20px;
+            margin-top: 30px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { flex-direction: column; gap: 20px; }
+            .nav-links { gap: 15px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">YOUR FUND CAPITAL</div>
+                <div class="nav-links">
+                    <a href="#thesis">Thesis</a>
+                    <a href="#team">Team</a>
+                    <a href="#holdings">Holdings</a>
+                    <a href="#" class="btn btn-primary" style="padding: 8px 20px;">Investor Login</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="hero">
+            <h4>506(c) High-Yield Fund</h4>
+            <h1>Contrarian Investing for the Accredited Investor.</h1>
+            <p>We acquire distressed assets that institutions overlook and retail investors cannot access. A focus on capital preservation and asymmetric upside.</p>
+            
+            <div class="cta-group">
+                <a href="#" class="btn btn-primary">View Current Offering</a>
+                <a href="#" class="btn btn-outline" style="margin-left: 10px;">Read The Thesis</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="philosophy" id="thesis">
+        <div class="container">
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Deep Value</h3>
+                    <p>We do not chase trends. We buy assets trading significantly below replacement cost. We are buyers when others are sellers, securing a margin of safety at the moment of purchase.</p>
+                </div>
+                <div class="card">
+                    <h3>Skin in the Game</h3>
+                    <p>The General Partners invest significantly alongside Limited Partners. We do not profit unless our investors profit. Our incentives are perfectly aligned.</p>
+                </div>
+                <div class="card">
+                    <h3>Active Management</h3>
+                    <p>We are not passive allocators. We take operational control of our assets to force appreciation through operational efficiency and strategic repositioning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="metrics">
+        <div class="container">
+            <h2>Fund Strategy Targets</h2>
+            <div class="grid-3">
+                <div class="stat-box">
+                    <div class="stat-number">15%+</div>
+                    <div class="stat-label">Target IRR</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">8%</div>
+                    <div class="stat-label">Pref Return</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">5-7yr</div>
+                    <div class="stat-label">Hold Period</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" style="padding: 80px 0;">
+        <div style="max-width: 700px;">
+            <h2 style="margin-bottom: 20px;">To Our Partners</h2>
+            <p style="margin-bottom: 20px;">
+                The current macroeconomic environment presents a rare window of opportunity. While traditional equities face headwinds from inflation and rate hikes, hard assets with pricing power offer a shelter from the storm.
+            </p>
+            <p style="margin-bottom: 20px;">
+                Our fund is structured under Rule 506(c) of Regulation D, allowing us to share this opportunity publicly, but limiting investment strictly to verified accredited investors.
+            </p>
+            <br>
+            <a href="#" class="btn btn-outline">Download Presentation (PDF)</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="grid-3" style="margin-bottom: 40px;">
+                <div>
+                    <h4>Your Fund Capital</h4>
+                    <p>123 Financial District Blvd<br>New York, NY 10005<br>ir@yourfund.com</p>
+                </div>
+                <div>
+                    <h4>Links</h4>
+                    <p><a href="#">Investor Portal</a></p>
+                    <p><a href="#">Verify Accreditation</a></p>
+                    <p><a href="#">Privacy Policy</a></p>
+                </div>
+            </div>
+
+            <div class="disclaimer-box">
+                <strong>IMPORTANT LEGAL NOTICE:</strong><br><br>
+                This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities. 
+                <br><br>
+                <strong>Accredited Investors Only:</strong> The securities described herein are offered pursuant to Rule 506(c) of Regulation D. Investments are available only to "Accredited Investors" as defined by the SEC. All investors will be required to provide documentation verifying their accreditation status (e.g., tax returns, bank statements, or a letter from a CPA/attorney) prior to investment.
+                <br><br>
+                <strong>Risk of Loss:</strong> Private investments are highly illiquid and speculative. Investors must be able to bear the loss of their entire investment. Past performance is not indicative of future results.
+            </div>
+            
+            <p style="margin-top: 20px; text-align: center;">&copy; 2024 Your Fund Capital Management, LLC. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
