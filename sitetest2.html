@@ -4,38 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IYSR Capital Management | 506(c) Fund</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* --- INSTITUTIONAL THEME SETUP --- */
+        /* --- REFINED THEME & VARIABLES --- */
         :root {
-            --primary: #0a192f; /* Dark Navy - Trust */
-            --secondary: #c5a059; /* Muted Gold - Wealth */
-            --light-bg: #f4f4f4;
-            --text-main: #333;
-            --text-light: #666;
-            --max-width: 1100px;
+            --primary: #0a192f; /* Deep Navy */
+            --secondary: #c5a059; /* Gold */
+            --secondary-dark: #a88645;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --border-color: #e2e8f0;
+            --max-width: 1200px;
+            --section-spacing: 80px;
+            --border-radius: 8px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             color: var(--text-main);
-            line-height: 1.6;
-            background-color: #fff;
+            line-height: 1.7;
+            background-color: var(--white);
         }
 
-        h1, h2, h3 {
-            font-family: 'Garamond', 'Georgia', serif; /* Serif for headlines adds prestige */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
             color: var(--primary);
             font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
         }
 
-        a { text-decoration: none; transition: 0.3s; }
+        a { text-decoration: none; transition: all 0.3s ease; }
 
+        /* --- UTILITIES --- */
         .container {
             max-width: var(--max-width);
             margin: 0 auto;
             padding: 0 20px;
+        }
+        @media (min-width: 768px) { .container { padding: 0 40px; } }
+
+        .section-padding { padding: 60px 0; }
+        @media (min-width: 768px) { .section-padding { padding: 100px 0; } }
+
+        .text-center { text-align: center; }
+        
+        .section-subtitle {
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 1rem;
         }
 
         /* --- BUTTONS --- */
@@ -47,191 +72,253 @@
             font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
-            border: 1px solid var(--primary);
+            border: 2px solid transparent;
+            border-radius: 4px;
         }
 
         .btn-gold {
             background-color: var(--secondary);
-            border-color: var(--secondary);
-            color: #fff;
+            color: var(--white);
         }
-        .btn-gold:hover { background-color: #a88645; }
+        .btn-gold:hover { background-color: var(--secondary-dark); }
 
         .btn-outline {
-            background-color: transparent;
+            border-color: var(--primary);
             color: var(--primary);
         }
-        .btn-outline:hover { background-color: var(--primary); color: #fff; }
+        .btn-outline:hover { background-color: var(--primary); color: var(--white); }
+        
+        .btn-outline-light {
+            border-color: var(--white);
+            color: var(--white);
+        }
+        .btn-outline-light:hover { background-color: var(--white); color: var(--primary); }
 
-        /* --- HEADER --- */
+        /* --- HEADER & MOBILE NAV --- */
         header {
-            padding: 25px 0;
-            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
-            background: rgba(255,255,255,0.98);
             z-index: 1000;
         }
 
-        nav {
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            letter-spacing: -0.5px;
             color: var(--primary);
-            font-family: 'Garamond', serif;
+            font-family: 'Playfair Display', serif;
         }
 
+        .nav-links { display: flex; align-items: center; }
         .nav-links a {
             margin-left: 30px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-main);
             font-weight: 500;
         }
         .nav-links a:hover { color: var(--secondary); }
+        .nav-btn { margin-left: 30px; }
 
-        /* --- HERO --- */
+        /* Mobile Nav Toggle */
+        .nav-toggle { display: none; }
+        .nav-toggle-label { display: none; cursor: pointer; padding: 10px; }
+        .hamburger {
+            display: block; background: var(--primary); height: 2px; width: 24px; position: relative; transition: all 0.3s;
+        }
+        .hamburger::before, .hamburger::after {
+            content: ''; position: absolute; background: var(--primary); height: 2px; width: 24px; transition: all 0.3s;
+        }
+        .hamburger::before { bottom: 8px; }
+        .hamburger::after { top: 8px; }
+
+        @media (max-width: 768px) {
+            .nav-toggle-label { display: block; }
+            .nav-links {
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: var(--white); flex-direction: column; padding: 20px 0;
+                border-bottom: 1px solid var(--border-color);
+                transform: scaleY(0); transform-origin: top; transition: transform 0.3s ease;
+            }
+            .nav-links a { margin: 10px 0; }
+            .nav-btn { margin: 20px 0 0 0; }
+            
+            #nav-toggle:checked ~ .nav-links { transform: scaleY(1); }
+            #nav-toggle:checked ~ .nav-toggle-label .hamburger { background: transparent; }
+            #nav-toggle:checked ~ .nav-toggle-label .hamburger::before { bottom: 0; transform: rotate(45deg); }
+            #nav-toggle:checked ~ .nav-toggle-label .hamburger::after { top: 0; transform: rotate(-45deg); }
+        }
+
+        /* --- HERO SECTION --- */
         .hero {
+            /* Added a professional background image with a dark overlay */
+            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), url('https://source.unsplash.com/random/1920x1080/?finance,abstract,city') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
             padding: 120px 0;
-            background: linear-gradient(to right, #fff 50%, #f9f9f9 50%);
         }
-        
-        .hero-content { max-width: 700px; }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 25px;
-        }
+        @media (min-width: 768px) { .hero { text-align: left; padding: 180px 0; } }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 40px;
-            max-width: 600px;
-        }
+        .hero h1 { color: var(--white); font-size: 2.5rem; }
+        @media (min-width: 768px) { .hero h1 { font-size: 3.5rem; } }
+        
+        .hero p { color: rgba(255,255,255,0.9); font-size: 1.1rem; max-width: 600px; margin: 0 auto 40px auto; }
+        @media (min-width: 768px) { .hero p { margin: 0 0 40px 0; font-size: 1.25rem; } }
+
+        .hero-btns { display: flex; flex-direction: column; gap: 15px; justify-content: center; }
+        @media (min-width: 768px) { .hero-btns { flex-direction: row; justify-content: flex-start; } }
 
         /* --- STRATEGY SECTION --- */
-        .strategy {
-            padding: 100px 0;
-            background-color: var(--primary);
-            color: #fff;
-        }
-
-        .strategy h2 { color: #fff; margin-bottom: 10px; }
-        .section-subtitle { color: var(--secondary); text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; display: block; margin-bottom: 40px;}
+        .strategy { background-color: var(--primary); color: var(--white); }
+        .strategy h2 { color: var(--white); }
+        .strategy p.lead { color: rgba(255,255,255,0.8); max-width: 700px; margin-bottom: 50px; }
 
         .strategy-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-top: 50px;
-        }
-
-        .strategy-item h3 { color: #fff; font-size: 1.5rem; margin-bottom: 15px; border-left: 3px solid var(--secondary); padding-left: 15px; }
-        .strategy-item p { color: #ccc; }
-
-        /* --- PERFORMANCE TABLE --- */
-        .performance { padding: 100px 0; background-color: #fff; }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 40px;
-            font-size: 1rem;
-        }
-
-        th, td {
-            padding: 20px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-
-        th {
-            background-color: #f9f9f9;
-            font-weight: 600;
-            color: var(--primary);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        .highlight-row td {
-            background-color: #fdfdfd;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        /* --- TEAM --- */
-        .team { padding: 100px 0; background-color: var(--light-bg); }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
             margin-top: 50px;
         }
+        @media (min-width: 768px) { .strategy-grid { grid-template-columns: 1fr 1fr; } }
 
-        .team-member {
-            background: #fff;
-            padding: 40px;
-            border: 1px solid #e0e0e0;
+        .strategy-item h3 { color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px; display: flex; align-items: center; }
+        /* Added an icon placeholder */
+        .strategy-item h3::before { content: '📈'; font-size: 1.5rem; margin-right: 10px; }
+        .strategy-item:last-child h3::before { content: '🛡️'; }
+        .strategy-item p { color: rgba(255,255,255,0.7); }
+
+        /* Placeholder for a visual diagram */
+        .diagram-placeholder {
+            margin-top: 60px;
+            border: 3px dashed rgba(255,255,255,0.3);
+            border-radius: var(--border-radius);
+            padding: 80px 20px;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
-        .team-member h4 { font-size: 1.2rem; margin-bottom: 5px; color: var(--primary); }
-        .team-member span { color: var(--secondary); font-size: 0.9rem; display: block; margin-bottom: 20px; }
-        .team-member p { font-size: 0.9rem; color: var(--text-light); }
-
-        /* --- CONTACT / INVEST --- */
-        .contact { padding: 100px 0; text-align: center; }
+        /* --- PERFORMANCE SECTION --- */
+        .performance { background-color: var(--white); }
         
+        /* Placeholder for a chart */
+        .chart-placeholder {
+            margin: 40px 0;
+            border: 3px dashed var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 100px 20px;
+            text-align: center;
+            color: var(--text-light);
+            font-weight: 600;
+            background-color: var(--light-bg);
+        }
+
+        /* Scrollable table container for mobile */
+        .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; white-space: nowrap; }
+        th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--border-color); }
+        th { background-color: var(--light-bg); font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 1px; }
+        .highlight-row td { background-color: #f0f4f8; font-weight: 700; color: var(--primary); }
+
+        /* --- TEAM SECTION --- */
+        .team { background-color: var(--light-bg); }
+        .team-grid {
+            display: grid;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        /* Responsive grid: 1 col on mobile, 2 on tablet, 3 on desktop */
+        @media (min-width: 640px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .team-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .team-member {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .team-member:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0,0,0,0.1); }
+
+        /* Placeholder for member photo */
+        .member-photo {
+            width: 120px; height: 120px;
+            background-color: var(--border-color);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            /* Replace the URL below with actual headshots */
+            background-image: url('https://source.unsplash.com/random/200x200/?portrait,business');
+            background-size: cover; background-position: center;
+        }
+        .team-member h4 { font-size: 1.25rem; margin-bottom: 5px; }
+        .team-member span { color: var(--secondary); font-size: 0.9rem; display: block; margin-bottom: 15px; font-weight: 600; }
+        .team-member p { font-size: 0.95rem; color: var(--text-light); }
+
+        /* --- CONTACT SECTION --- */
+        .contact { background-color: var(--white); }
         .contact-form-box {
             max-width: 600px;
             margin: 40px auto 0;
-            text-align: left;
+            padding: 40px;
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: var(--primary); }
         input, select, textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            font-family: inherit;
+            width: 100%; padding: 12px 15px; border: 1px solid var(--border-color);
+            border-radius: 4px; font-family: inherit; font-size: 1rem; color: var(--text-main);
+            transition: border-color 0.3s;
         }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); }
 
         /* --- FOOTER --- */
-        footer {
-            background-color: #0a192f;
-            color: #6b7c93;
-            padding: 60px 0;
-            font-size: 0.75rem;
+        footer { background-color: var(--primary); color: #8892b0; font-size: 0.85rem; }
+        .footer-content {
+            display: grid; gap: 40px; margin-bottom: 40px;
         }
+        @media (min-width: 768px) { .footer-content { grid-template-columns: 1fr 1fr; } }
+        
+        .footer-brand h2 { color: var(--white); margin-bottom: 15px; }
+        .footer-links h4 { color: var(--white); font-size: 1rem; margin-bottom: 15px; font-family: 'Inter', sans-serif; }
+        .footer-links p { margin-bottom: 10px; }
+        .footer-links a { color: #8892b0; }
+        .footer-links a:hover { color: var(--secondary); }
 
         .disclaimer {
-            border-top: 1px solid #1e2d42;
-            margin-top: 40px;
-            padding-top: 20px;
-            line-height: 1.5;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            line-height: 1.6;
         }
-
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo">IYSR CAPITAL</div>
-                <div class="nav-links">
-                    <a href="#strategy">Strategy</a>
-                    <a href="#performance">Performance</a>
-                    <a href="#team">Team</a>
-                    <a href="#contact" class="btn btn-outline" style="padding: 8px 20px;">Request Access</a>
+        <div class="container nav-container">
+            <div class="logo">IYSR CAPITAL</div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span class="hamburger"></span>
+            </label>
+            <nav class="nav-links">
+                <a href="#strategy">Strategy</a>
+                <a href="#performance">Performance</a>
+                <a href="#team">Team</a>
+                <div class="nav-btn">
+                    <a href="#contact" class="btn btn-outline">Request Access</a>
                 </div>
             </nav>
         </div>
@@ -242,127 +329,168 @@
             <div class="hero-content">
                 <h1>Institutional Alpha via Structural Leverage.</h1>
                 <p>A 506(c) Fund combining Leveraged ETFs and Systematic Option Overlays to target superior risk-adjusted returns for Accredited Investors.</p>
-                <div>
+                <div class="hero-btns">
                     <a href="#performance" class="btn btn-gold">View Track Record</a>
-                    <a href="#contact" class="btn btn-outline" style="margin-left: 10px;">Get In Touch</a>
+                    <a href="#contact" class="btn btn-outline-light">Get In Touch</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="strategy" id="strategy">
+    <section class="strategy section-padding" id="strategy">
         <div class="container">
-            <span class="section-subtitle">Our Methodology</span>
-            <h2>Dual-Engine Growth</h2>
-            <p style="max-width: 600px; color: #ccc;">We bridge the gap between passive indexing and active hedge fund management by utilizing a rules-based approach to leverage and volatility.</p>
+            <div class="text-center">
+                <span class="section-subtitle">Our Methodology</span>
+                <h2>Dual-Engine Growth</h2>
+                <p class="lead" style="margin: 0 auto;">We bridge the gap between passive indexing and active hedge fund management by utilizing a rules-based approach to leverage and volatility.</p>
+            </div>
 
             <div class="strategy-grid">
                 <div class="strategy-item">
-                    <h3>1. Structural Leverage</h3>
+                    <h3>Structural Leverage</h3>
                     <p>We utilize Leveraged ETFs (LETFs) to gain enhanced exposure to broad market indices. Rather than using margin debt which incurs call risk, we use the structural leverage inherent in these instruments to target 2x-3x daily equity exposure during favorable trend regimes.</p>
                 </div>
                 <div class="strategy-item">
-                    <h3>2. Option Income Overlay</h3>
+                    <h3>Option Income Overlay</h3>
                     <p>To offset the volatility drag of leverage, we deploy a systematic options strategy. By writing covered calls and selling volatility during high-VIX environments, we generate uncorrelated cash flow that acts as a buffer during market drawdowns.</p>
                 </div>
             </div>
+
+            <div class="diagram-placeholder">
+                [Insert a Visual Diagram of Your "Dual-Engine" Strategy Here]
+                <p style="font-size: 0.9rem; margin-top: 10px; font-weight: normal;">Replace this box with an image demonstrating how the ETF and Options strategies work together.</p>
+            </div>
         </div>
     </section>
 
-    <section class="performance" id="performance">
+    <section class="performance section-padding" id="performance">
         <div class="container">
-            <h2>Performance History</h2>
-            <p style="color: #666; max-width: 700px; margin-bottom: 30px;">
-                The data below represents the historical performance of the core strategy utilized by IYSR Capital compared to the S&P 500 benchmark.
+            <div class="text-center">
+                <span class="section-subtitle">Track Record</span>
+                <h2>Performance History</h2>
+                <p style="color: var(--text-light); max-width: 700px; margin: 0 auto 40px auto;">
+                    The data below represents the historical performance of the core strategy utilized by IYSR Capital compared to the S&P 500 benchmark.
+                </p>
+            </div>
+
+            <div class="chart-placeholder">
+                [Insert Performance Chart Here]
+                <p style="font-size: 0.9rem; margin-top: 10px; font-weight: normal;">Replace this box with a line or bar chart visually comparing your strategy's growth vs. the S&P 500.</p>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>IYSR Strategy (Net)</th>
+                            <th>S&P 500 (SPY)</th>
+                            <th>Difference</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight-row">
+                            <td>2024 (YTD)</td>
+                            <td>+XX.X%</td>
+                            <td>+XX.X%</td>
+                            <td>+XX.X%</td>
+                        </tr>
+                        <tr>
+                            <td>2023</td>
+                            <td>+XX.X%</td>
+                            <td>+24.2%</td>
+                            <td>+XX.X%</td>
+                        </tr>
+                        <tr>
+                            <td>2022</td>
+                            <td>-XX.X%</td>
+                            <td>-19.4%</td>
+                            <td>+XX.X%</td>
+                        </tr>
+                        <tr>
+                            <td>2021</td>
+                            <td>+XX.X%</td>
+                            <td>+27.6%</td>
+                            <td>+XX.X%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size: 0.8rem; color: #999; margin-top: 20px;">
+                *Past performance is not indicative of future results. Returns shown are hypothetical backtested results of the strategy prior to fund inception.
             </p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Year</th>
-                        <th>IYSR Strategy (Net)</th>
-                        <th>S&P 500 (SPY)</th>
-                        <th>Difference</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="highlight-row">
-                        <td>2024 (YTD)</td>
-                        <td>+XX.X%</td>
-                        <td>+XX.X%</td>
-                        <td>+XX.X%</td>
-                    </tr>
-                    <tr>
-                        <td>2023</td>
-                        <td>+XX.X%</td>
-                        <td>+24.2%</td>
-                        <td>+XX.X%</td>
-                    </tr>
-                    <tr>
-                        <td>2022</td>
-                        <td>-XX.X%</td>
-                        <td>-19.4%</td>
-                        <td>+XX.X%</td>
-                    </tr>
-                    <tr>
-                        <td>2021</td>
-                        <td>+XX.X%</td>
-                        <td>+27.6%</td>
-                        <td>+XX.X%</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="4" style="font-size: 0.8rem; color: #999; padding-top: 20px;">
-                            *Past performance is not indicative of future results. Returns shown are hypothetical backtested results of the strategy prior to fund inception.
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
         </div>
     </section>
 
-    <section class="team" id="team">
+    <section class="team section-padding" id="team">
         <div class="container">
-            <h2>Investment Team</h2>
+            <div class="text-center">
+                 <span class="section-subtitle">Leadership</span>
+                <h2>Investment Team</h2>
+            </div>
             <div class="team-grid">
                 
                 <div class="team-member">
+                    <div class="member-photo"></div>
                     <h4>[Your Name]</h4>
                     <span>Managing Partner</span>
-                    <p>Founder of IncreaseYourStockReturns.com. Specializes in quantitative analysis of leveraged equity products and volatility arbitrage. [Insert 2 sentences about your background/experience].</p>
+                    <p>Founder of IncreaseYourStockReturns.com. Specializes in quantitative analysis of leveraged equity products and volatility arbitrage.</p>
                 </div>
 
                 <div class="team-member">
+                    <div class="member-photo"></div>
                     <h4>[Partner Name]</h4>
-                    <span>Head of Trading / Operations</span>
-                    <p>Focuses on trade execution and risk management parameters. [Insert background on financial operations or analysis].</p>
+                    <span>Head of Trading</span>
+                    <p>Focuses on trade execution and risk management parameters. Background in institutional equity derivatives trading.</p>
+                </div>
+                
+                 <div class="team-member">
+                    <div class="member-photo"></div>
+                    <h4>[Partner Name]</h4>
+                    <span>Head of Operations</span>
+                    <p>Oversees fund operations, compliance, and investor relations. Ensures seamless execution of fund strategy.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
+    <section class="contact section-padding" id="contact">
         <div class="container">
-            <h2>Request Offering Documents</h2>
-            <p>Access to IYSR Capital is limited to Accredited Investors.</p>
+            <div class="text-center">
+                <span class="section-subtitle">Invest</span>
+                <h2>Request Offering Documents</h2>
+                <p>Access to IYSR Capital is strictly limited to Accredited Investors.</p>
+            </div>
             
             <div class="contact-form-box">
                 <form>
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                    <input type="tel" placeholder="Phone Number">
-                    
-                    <select required>
-                        <option value="" disabled selected>Are you an Accredited Investor?</option>
-                        <option value="yes">Yes (Net Worth > $1M)</option>
-                        <option value="yes-income">Yes (Income > $200k/$300k)</option>
-                        <option value="no">No</option>
-                        <option value="unsure">Unsure</option>
-                    </select>
-
-                    <textarea rows="4" placeholder="Message / Questions about the strategy"></textarea>
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Are you an Accredited Investor?</label>
+                        <select required>
+                            <option value="" disabled selected>Select an option...</option>
+                            <option value="yes-networth">Yes (Net Worth > $1M)</option>
+                            <option value="yes-income">Yes (Income > $200k/$300k)</option>
+                            <option value="no">No</option>
+                            <option value="unsure">Unsure</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                         <label class="form-label">Message / Questions</label>
+                        <textarea rows="4"></textarea>
+                    </div>
                     
                     <button type="submit" class="btn btn-gold" style="width: 100%;">Request PPM</button>
                 </form>
@@ -370,10 +498,21 @@
         </div>
     </section>
 
-    <footer>
+    <footer class="section-padding">
         <div class="container">
-            <p style="color: #fff; margin-bottom: 20px;">IYSR CAPITAL MANAGEMENT, LLC</p>
-            <p>123 Financial District, Suite 100<br>New York, NY 10005<br>ir@iysrcapital.com</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h2>IYSR CAPITAL</h2>
+                    <p>123 Financial District, Suite 100<br>New York, NY 10005<br>ir@iysrcapital.com</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigate</h4>
+                    <p><a href="#strategy">Strategy</a></p>
+                    <p><a href="#performance">Performance</a></p>
+                    <p><a href="#team">Team</a></p>
+                    <p><a href="#contact">Request Access</a></p>
+                </div>
+            </div>
 
             <div class="disclaimer">
                 <strong>IMPORTANT DISCLOSURE:</strong><br><br>
@@ -383,6 +522,7 @@
                 <br><br>
                 <strong>Risk of Leverage & Options:</strong> This Fund employs leverage and options strategies which involve a high degree of risk. The use of leveraged ETFs can amplify losses as well as gains. Options trading involves specific risks including the potential for significant loss. Investors should have the financial ability and willingness to accept the risks associated with this investment.
             </div>
+            <p style="margin-top: 40px; text-align: center;">&copy; 2024 IYSR Capital Management, LLC. All rights reserved.</p>
         </div>
     </footer>
 
