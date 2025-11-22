@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IYSR Capital Management | 506(c) Fund</title>
+    <style>
+        /* --- INSTITUTIONAL THEME SETUP --- */
+        :root {
+            --primary: #0a192f; /* Dark Navy - Trust */
+            --secondary: #c5a059; /* Muted Gold - Wealth */
+            --light-bg: #f4f4f4;
+            --text-main: #333;
+            --text-light: #666;
+            --max-width: 1100px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Garamond', 'Georgia', serif; /* Serif for headlines adds prestige */
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        a { text-decoration: none; transition: 0.3s; }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--primary);
+        }
+
+        .btn-gold {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            color: #fff;
+        }
+        .btn-gold:hover { background-color: #a88645; }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+        }
+        .btn-outline:hover { background-color: var(--primary); color: #fff; }
+
+        /* --- HEADER --- */
+        header {
+            padding: 25px 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.98);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--primary);
+            font-family: 'Garamond', serif;
+        }
+
+        .nav-links a {
+            margin-left: 30px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+        .nav-links a:hover { color: var(--secondary); }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 120px 0;
+            background: linear-gradient(to right, #fff 50%, #f9f9f9 50%);
+        }
+        
+        .hero-content { max-width: 700px; }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        /* --- STRATEGY SECTION --- */
+        .strategy {
+            padding: 100px 0;
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        .strategy h2 { color: #fff; margin-bottom: 10px; }
+        .section-subtitle { color: var(--secondary); text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; display: block; margin-bottom: 40px;}
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 50px;
+        }
+
+        .strategy-item h3 { color: #fff; font-size: 1.5rem; margin-bottom: 15px; border-left: 3px solid var(--secondary); padding-left: 15px; }
+        .strategy-item p { color: #ccc; }
+
+        /* --- PERFORMANCE TABLE --- */
+        .performance { padding: 100px 0; background-color: #fff; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+            font-size: 1rem;
+        }
+
+        th, td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f9f9f9;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .highlight-row td {
+            background-color: #fdfdfd;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* --- TEAM --- */
+        .team { padding: 100px 0; background-color: var(--light-bg); }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            background: #fff;
+            padding: 40px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .team-member h4 { font-size: 1.2rem; margin-bottom: 5px; color: var(--primary); }
+        .team-member span { color: var(--secondary); font-size: 0.9rem; display: block; margin-bottom: 20px; }
+        .team-member p { font-size: 0.9rem; color: var(--text-light); }
+
+        /* --- CONTACT / INVEST --- */
+        .contact { padding: 100px 0; text-align: center; }
+        
+        .contact-form-box {
+            max-width: 600px;
+            margin: 40px auto 0;
+            text-align: left;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            font-family: inherit;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0a192f;
+            color: #6b7c93;
+            padding: 60px 0;
+            font-size: 0.75rem;
+        }
+
+        .disclaimer {
+            border-top: 1px solid #1e2d42;
+            margin-top: 40px;
+            padding-top: 20px;
+            line-height: 1.5;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">IYSR CAPITAL</div>
+                <div class="nav-links">
+                    <a href="#strategy">Strategy</a>
+                    <a href="#performance">Performance</a>
+                    <a href="#team">Team</a>
+                    <a href="#contact" class="btn btn-outline" style="padding: 8px 20px;">Request Access</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Institutional Alpha via Structural Leverage.</h1>
+                <p>A 506(c) Fund combining Leveraged ETFs and Systematic Option Overlays to target superior risk-adjusted returns for Accredited Investors.</p>
+                <div>
+                    <a href="#performance" class="btn btn-gold">View Track Record</a>
+                    <a href="#contact" class="btn btn-outline" style="margin-left: 10px;">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="strategy" id="strategy">
+        <div class="container">
+            <span class="section-subtitle">Our Methodology</span>
+            <h2>Dual-Engine Growth</h2>
+            <p style="max-width: 600px; color: #ccc;">We bridge the gap between passive indexing and active hedge fund management by utilizing a rules-based approach to leverage and volatility.</p>
+
+            <div class="strategy-grid">
+                <div class="strategy-item">
+                    <h3>1. Structural Leverage</h3>
+                    <p>We utilize Leveraged ETFs (LETFs) to gain enhanced exposure to broad market indices. Rather than using margin debt which incurs call risk, we use the structural leverage inherent in these instruments to target 2x-3x daily equity exposure during favorable trend regimes.</p>
+                </div>
+                <div class="strategy-item">
+                    <h3>2. Option Income Overlay</h3>
+                    <p>To offset the volatility drag of leverage, we deploy a systematic options strategy. By writing covered calls and selling volatility during high-VIX environments, we generate uncorrelated cash flow that acts as a buffer during market drawdowns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="performance" id="performance">
+        <div class="container">
+            <h2>Performance History</h2>
+            <p style="color: #666; max-width: 700px; margin-bottom: 30px;">
+                The data below represents the historical performance of the core strategy utilized by IYSR Capital compared to the S&P 500 benchmark.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>IYSR Strategy (Net)</th>
+                        <th>S&P 500 (SPY)</th>
+                        <th>Difference</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-row">
+                        <td>2024 (YTD)</td>
+                        <td>+XX.X%</td>
+                        <td>+XX.X%</td>
+                        <td>+XX.X%</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>+XX.X%</td>
+                        <td>+24.2%</td>
+                        <td>+XX.X%</td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td>-XX.X%</td>
+                        <td>-19.4%</td>
+                        <td>+XX.X%</td>
+                    </tr>
+                    <tr>
+                        <td>2021</td>
+                        <td>+XX.X%</td>
+                        <td>+27.6%</td>
+                        <td>+XX.X%</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" style="font-size: 0.8rem; color: #999; padding-top: 20px;">
+                            *Past performance is not indicative of future results. Returns shown are hypothetical backtested results of the strategy prior to fund inception.
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </section>
+
+    <section class="team" id="team">
+        <div class="container">
+            <h2>Investment Team</h2>
+            <div class="team-grid">
+                
+                <div class="team-member">
+                    <h4>[Your Name]</h4>
+                    <span>Managing Partner</span>
+                    <p>Founder of IncreaseYourStockReturns.com. Specializes in quantitative analysis of leveraged equity products and volatility arbitrage. [Insert 2 sentences about your background/experience].</p>
+                </div>
+
+                <div class="team-member">
+                    <h4>[Partner Name]</h4>
+                    <span>Head of Trading / Operations</span>
+                    <p>Focuses on trade execution and risk management parameters. [Insert background on financial operations or analysis].</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Request Offering Documents</h2>
+            <p>Access to IYSR Capital is limited to Accredited Investors.</p>
+            
+            <div class="contact-form-box">
+                <form>
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="tel" placeholder="Phone Number">
+                    
+                    <select required>
+                        <option value="" disabled selected>Are you an Accredited Investor?</option>
+                        <option value="yes">Yes (Net Worth > $1M)</option>
+                        <option value="yes-income">Yes (Income > $200k/$300k)</option>
+                        <option value="no">No</option>
+                        <option value="unsure">Unsure</option>
+                    </select>
+
+                    <textarea rows="4" placeholder="Message / Questions about the strategy"></textarea>
+                    
+                    <button type="submit" class="btn btn-gold" style="width: 100%;">Request PPM</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="color: #fff; margin-bottom: 20px;">IYSR CAPITAL MANAGEMENT, LLC</p>
+            <p>123 Financial District, Suite 100<br>New York, NY 10005<br>ir@iysrcapital.com</p>
+
+            <div class="disclaimer">
+                <strong>IMPORTANT DISCLOSURE:</strong><br><br>
+                The information on this website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any interests in IYSR Capital (the "Fund"). Such an offer can only be made via the Confidential Private Placement Memorandum (PPM).
+                <br><br>
+                <strong>Accredited Investors Only:</strong> The Fund is offered under Rule 506(c) of Regulation D. This allows for general solicitation, but sales are strictly limited to "Accredited Investors" as defined by the SEC. Verification of accreditation status will be required prior to acceptance of any subscription.
+                <br><br>
+                <strong>Risk of Leverage & Options:</strong> This Fund employs leverage and options strategies which involve a high degree of risk. The use of leveraged ETFs can amplify losses as well as gains. Options trading involves specific risks including the potential for significant loss. Investors should have the financial ability and willingness to accept the risks associated with this investment.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
