@@ -6,16 +6,24 @@
     <title>SSCapital Group | 506(c) Fund</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* --- REFINED THEME & VARIABLES --- */
+        /* --- NEW COLOR PALETTE --- */
         :root {
-            --primary: #000000;
-            --secondary: #c5a059; /* Gold */
-            --secondary-dark: #a88645;
-            --light-bg: #f8f9fa;
+            /* REPLACED BLACK WITH DEEP NAVY/SLATE */
+            --primary: #0f172a; 
+            
+            /* REFINED GOLD TO MUTED BRONZE */
+            --secondary: #d97706; 
+            --secondary-dark: #b45309;
+            
+            /* UPDATED BACKGROUNDS */
+            --light-bg: #f1f5f9; /* Cool slate-gray tint */
             --white: #ffffff;
-            --text-main: #334155;
-            --text-light: #64748b;
-            --border-color: #e2e8f0;
+            
+            /* SOFTER TEXT COLORS */
+            --text-main: #334155; /* Slate 700 */
+            --text-light: #64748b; /* Slate 500 */
+            
+            --border-color: #cbd5e1;
             --max-width: 1200px;
             --section-spacing: 80px;
             --border-radius: 8px;
@@ -96,8 +104,8 @@
 
         /* --- HEADER & MOBILE NAV --- */
         header {
-            padding: 10px 0; /* Reduced padding slightly to accommodate logo */
-            background: rgba(255, 255, 255, 0.95);
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
             position: sticky;
@@ -111,13 +119,12 @@
             align-items: center;
         }
 
-        /* Updated Logo Styling for Image */
         .logo {
             display: flex;
             align-items: center;
         }
         .logo img {
-            max-height: 70px; /* Controls height of logo in navbar */
+            max-height: 70px; 
             width: auto;
         }
 
@@ -144,7 +151,7 @@
         .hamburger::after { top: 8px; }
 
         @media (max-width: 768px) {
-            .logo img { max-height: 55px; } /* Slightly smaller logo on mobile */
+            .logo img { max-height: 55px; }
             .nav-toggle-label { display: block; }
             .nav-links {
                 position: absolute; top: 100%; left: 0; width: 100%;
@@ -163,7 +170,8 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), url('https://source.unsplash.com/random/1920x1080/?finance,abstract,city') no-repeat center center/cover;
+            /* Updated Gradient: Now uses the Deep Navy Blue instead of Black */
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.85)), url('https://source.unsplash.com/random/1920x1080/?finance,skyscraper,city') no-repeat center center/cover;
             color: var(--white);
             text-align: center;
             padding: 120px 0;
@@ -173,16 +181,17 @@
         .hero h1 { color: var(--white); font-size: 2.5rem; }
         @media (min-width: 768px) { .hero h1 { font-size: 3.5rem; } }
         
-        .hero p { color: rgba(255,255,255,0.9); font-size: 1.1rem; max-width: 600px; margin: 0 auto 40px auto; }
+        .hero p { color: #e2e8f0; font-size: 1.1rem; max-width: 600px; margin: 0 auto 40px auto; }
         @media (min-width: 768px) { .hero p { margin: 0 0 40px 0; font-size: 1.25rem; } }
 
         .hero-btns { display: flex; flex-direction: column; gap: 15px; justify-content: center; }
         @media (min-width: 768px) { .hero-btns { flex-direction: row; justify-content: flex-start; } }
 
         /* --- STRATEGY SECTION --- */
+        /* Now uses the new Primary (Navy) instead of Black */
         .strategy { background-color: var(--primary); color: var(--white); }
         .strategy h2 { color: var(--white); }
-        .strategy p.lead { color: rgba(255,255,255,0.8); max-width: 700px; margin-bottom: 50px; }
+        .strategy p.lead { color: #94a3b8; max-width: 700px; margin-bottom: 50px; }
 
         .strategy-grid {
             display: grid;
@@ -194,17 +203,18 @@
         .strategy-item h3 { color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px; display: flex; align-items: center; }
         .strategy-item h3::before { content: '📈'; font-size: 1.5rem; margin-right: 10px; }
         .strategy-item:last-child h3::before { content: '🛡️'; }
-        .strategy-item p { color: rgba(255,255,255,0.7); }
+        .strategy-item p { color: #cbd5e1; }
 
         .diagram-placeholder {
             margin-top: 60px;
-            border: 3px dashed rgba(255,255,255,0.3);
+            border: 2px dashed #334155;
             border-radius: var(--border-radius);
             padding: 80px 20px;
             text-align: center;
-            color: rgba(255,255,255,0.5);
+            color: #64748b;
             font-weight: 600;
             letter-spacing: 1px;
+            background: rgba(255,255,255,0.02);
         }
 
         /* --- PERFORMANCE SECTION --- */
@@ -212,7 +222,7 @@
         
         .chart-placeholder {
             margin: 40px 0;
-            border: 3px dashed var(--border-color);
+            border: 2px dashed var(--border-color);
             border-radius: var(--border-radius);
             padding: 100px 20px;
             text-align: center;
@@ -225,7 +235,7 @@
         table { width: 100%; border-collapse: collapse; margin-top: 20px; white-space: nowrap; }
         th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--border-color); }
         th { background-color: var(--light-bg); font-weight: 600; color: var(--primary); font-size: 0.85rem; letter-spacing: 1px; }
-        .highlight-row td { background-color: #f0f4f8; font-weight: 700; color: var(--primary); }
+        .highlight-row td { background-color: #e2e8f0; font-weight: 700; color: var(--primary); }
 
         /* --- TEAM SECTION --- */
         .team { background-color: var(--light-bg); }
@@ -252,8 +262,7 @@
             background-color: var(--border-color);
             border-radius: 50%;
             margin: 0 auto 20px;
-            /* Replace the URL below with actual headshots */
-            background-image: url('https://source.unsplash.com/random/200x200/?portrait,business');
+            background-image: url('https://source.unsplash.com/random/200x200/?portrait,executive');
             background-size: cover; background-position: center;
         }
         .team-member h4 { font-size: 1.25rem; margin-bottom: 5px; }
@@ -269,7 +278,7 @@
             background: var(--white);
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
         .form-group { margin-bottom: 20px; }
@@ -281,26 +290,25 @@
         }
         input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); }
 
-        /* --- FOOTER (UPDATED) --- */
+        /* --- FOOTER --- */
         footer { 
-            background-color: var(--white); /* CHANGED to White */
-            color: var(--text-light); /* CHANGED to Dark Gray for readability */
+            background-color: var(--white); 
+            color: var(--text-light); 
             font-size: 0.85rem;
-            border-top: 1px solid var(--border-color); /* Added border to separate from Invest section */
+            border-top: 1px solid var(--border-color);
         }
         .footer-content {
             display: grid; gap: 40px; margin-bottom: 40px;
         }
         @media (min-width: 768px) { .footer-content { grid-template-columns: 1fr 1fr; } }
         
-        /* Footer Logo styling */
         .footer-brand .logo img {
-             max-height: 90px; /* Slightly larger logo in footer */
+             max-height: 90px;
              margin-bottom: 15px;
         }
 
         .footer-links h4 { 
-            color: var(--primary); /* CHANGED to Black */
+            color: var(--primary); 
             font-size: 1rem; 
             margin-bottom: 15px; 
             font-family: 'Inter', sans-serif; 
@@ -310,9 +318,10 @@
         .footer-links a:hover { color: var(--secondary); }
 
         .disclaimer {
-            border-top: 1px solid var(--border-color); /* CHANGED to visible gray border */
+            border-top: 1px solid var(--border-color);
             padding-top: 30px;
             line-height: 1.6;
+            color: #94a3b8;
         }
     </style>
 </head>
@@ -321,7 +330,7 @@
     <header>
         <div class="container nav-container">
             <div class="logo">
-                <img src="sscapital_logo.png" alt="SSCapital Group Logo">
+                <img src="image_2_transparent.png" alt="SSCapital Group Logo">
             </div>
 
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
@@ -512,7 +521,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="logo">
-                        <img src="sscapital_logo.png" alt="SSCapital Group Logo">
+                        <img src="image_2_transparent.png" alt="SSCapital Group Logo">
                     </div>
                     <p>123 Financial District, Suite 100<br>New York, NY 10005<br>ir@sscapitalgroup.com</p>
                 </div>
@@ -529,7 +538,7 @@
                 <strong>IMPORTANT DISCLOSURE:</strong><br><br>
                 The information on this website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any interests in SSCapital Group (the "Fund"). Such an offer can only be made via the Confidential Private Placement Memorandum (PPM).
                 <br><br>
-                <strong>Accredited Investors Only:</strong> The Fund is offered under Rule 506(b) of Regulation D. This allows for general solicitation, but sales are strictly limited to "Accredited Investors" as defined by the SEC. Verification of accreditation status will be required prior to acceptance of any subscription.
+                <strong>Accredited Investors Only:</strong> The Fund is offered under Rule 506(c) of Regulation D. This allows for general solicitation, but sales are strictly limited to "Accredited Investors" as defined by the SEC. Verification of accreditation status will be required prior to acceptance of any subscription.
                 <br><br>
                 <strong>Risk of Leverage & Options:</strong> This Fund employs leverage and options strategies which involve a high degree of risk. The use of leveraged ETFs can amplify losses as well as gains. Options trading involves specific risks including the potential for significant loss. Investors should have the financial ability and willingness to accept the risks associated with this investment.
             </div>
