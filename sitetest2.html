@@ -281,8 +281,13 @@
         }
         input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); }
 
-        /* --- FOOTER --- */
-        footer { background-color: var(--primary); color: #8892b0; font-size: 0.85rem; }
+        /* --- FOOTER (UPDATED) --- */
+        footer { 
+            background-color: var(--white); /* CHANGED to White */
+            color: var(--text-light); /* CHANGED to Dark Gray for readability */
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color); /* Added border to separate from Invest section */
+        }
         .footer-content {
             display: grid; gap: 40px; margin-bottom: 40px;
         }
@@ -294,13 +299,18 @@
              margin-bottom: 15px;
         }
 
-        .footer-links h4 { color: var(--white); font-size: 1rem; margin-bottom: 15px; font-family: 'Inter', sans-serif; }
+        .footer-links h4 { 
+            color: var(--primary); /* CHANGED to Black */
+            font-size: 1rem; 
+            margin-bottom: 15px; 
+            font-family: 'Inter', sans-serif; 
+        }
         .footer-links p { margin-bottom: 10px; }
-        .footer-links a { color: #8892b0; }
+        .footer-links a { color: var(--text-light); }
         .footer-links a:hover { color: var(--secondary); }
 
         .disclaimer {
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid var(--border-color); /* CHANGED to visible gray border */
             padding-top: 30px;
             line-height: 1.6;
         }
@@ -311,7 +321,7 @@
     <header>
         <div class="container nav-container">
             <div class="logo">
-                <img src="sscapital_logo.png" alt="SSCapital Group Logo">
+                <img src="image_2_transparent.png" alt="SSCapital Group Logo">
             </div>
 
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
@@ -502,7 +512,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="logo">
-                        <img src="sscapital_logo.png" alt="SSCapital Group Logo">
+                        <img src="image_2_transparent.png" alt="SSCapital Group Logo">
                     </div>
                     <p>123 Financial District, Suite 100<br>New York, NY 10005<br>ir@sscapitalgroup.com</p>
                 </div>
@@ -519,7 +529,7 @@
                 <strong>IMPORTANT DISCLOSURE:</strong><br><br>
                 The information on this website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any interests in SSCapital Group (the "Fund"). Such an offer can only be made via the Confidential Private Placement Memorandum (PPM).
                 <br><br>
-                <strong>Accredited Investors Only:</strong> The Fund is offered under Rule 506(c) of Regulation D. This allows for general solicitation, but sales are strictly limited to "Accredited Investors" as defined by the SEC. Verification of accreditation status will be required prior to acceptance of any subscription.
+                <strong>Accredited Investors Only:</strong> The Fund is offered under Rule 506(b) of Regulation D. This allows for general solicitation, but sales are strictly limited to "Accredited Investors" as defined by the SEC. Verification of accreditation status will be required prior to acceptance of any subscription.
                 <br><br>
                 <strong>Risk of Leverage & Options:</strong> This Fund employs leverage and options strategies which involve a high degree of risk. The use of leveraged ETFs can amplify losses as well as gains. Options trading involves specific risks including the potential for significant loss. Investors should have the financial ability and willingness to accept the risks associated with this investment.
             </div>
