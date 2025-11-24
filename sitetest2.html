@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IYSR Capital Management | 506(c) Fund</title>
+    <title>SSCapital Group | 506(c) Fund</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         /* --- REFINED THEME & VARIABLES --- */
@@ -96,7 +96,7 @@
 
         /* --- HEADER & MOBILE NAV --- */
         header {
-            padding: 15px 0;
+            padding: 10px 0; /* Reduced padding slightly to accommodate logo */
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
@@ -111,11 +111,14 @@
             align-items: center;
         }
 
+        /* Updated Logo Styling for Image */
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            font-family: 'Playfair Display', serif;
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            max-height: 70px; /* Controls height of logo in navbar */
+            width: auto;
         }
 
         .nav-links { display: flex; align-items: center; }
@@ -141,6 +144,7 @@
         .hamburger::after { top: 8px; }
 
         @media (max-width: 768px) {
+            .logo img { max-height: 55px; } /* Slightly smaller logo on mobile */
             .nav-toggle-label { display: block; }
             .nav-links {
                 position: absolute; top: 100%; left: 0; width: 100%;
@@ -159,7 +163,6 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            /* Added a professional background image with a dark overlay */
             background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), url('https://source.unsplash.com/random/1920x1080/?finance,abstract,city') no-repeat center center/cover;
             color: var(--white);
             text-align: center;
@@ -189,12 +192,10 @@
         @media (min-width: 768px) { .strategy-grid { grid-template-columns: 1fr 1fr; } }
 
         .strategy-item h3 { color: var(--secondary); font-size: 1.5rem; margin-bottom: 15px; display: flex; align-items: center; }
-        /* Added an icon placeholder */
         .strategy-item h3::before { content: '📈'; font-size: 1.5rem; margin-right: 10px; }
         .strategy-item:last-child h3::before { content: '🛡️'; }
         .strategy-item p { color: rgba(255,255,255,0.7); }
 
-        /* Placeholder for a visual diagram */
         .diagram-placeholder {
             margin-top: 60px;
             border: 3px dashed rgba(255,255,255,0.3);
@@ -209,7 +210,6 @@
         /* --- PERFORMANCE SECTION --- */
         .performance { background-color: var(--white); }
         
-        /* Placeholder for a chart */
         .chart-placeholder {
             margin: 40px 0;
             border: 3px dashed var(--border-color);
@@ -221,7 +221,6 @@
             background-color: var(--light-bg);
         }
 
-        /* Scrollable table container for mobile */
         .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; white-space: nowrap; }
         th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--border-color); }
@@ -235,7 +234,6 @@
             gap: 30px;
             margin-top: 50px;
         }
-        /* Responsive grid: 1 col on mobile, 2 on tablet, 3 on desktop */
         @media (min-width: 640px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (min-width: 1024px) { .team-grid { grid-template-columns: repeat(3, 1fr); } }
 
@@ -249,7 +247,6 @@
         }
         .team-member:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0,0,0,0.1); }
 
-        /* Placeholder for member photo */
         .member-photo {
             width: 120px; height: 120px;
             background-color: var(--border-color);
@@ -291,7 +288,12 @@
         }
         @media (min-width: 768px) { .footer-content { grid-template-columns: 1fr 1fr; } }
         
-        .footer-brand h2 { color: var(--white); margin-bottom: 15px; }
+        /* Footer Logo styling */
+        .footer-brand .logo img {
+             max-height: 90px; /* Slightly larger logo in footer */
+             margin-bottom: 15px;
+        }
+
         .footer-links h4 { color: var(--white); font-size: 1rem; margin-bottom: 15px; font-family: 'Inter', sans-serif; }
         .footer-links p { margin-bottom: 10px; }
         .footer-links a { color: #8892b0; }
@@ -308,7 +310,10 @@
 
     <header>
         <div class="container nav-container">
-            <div class="logo">IYSR CAPITAL</div>
+            <div class="logo">
+                <img src="image_1.png" alt="SSCapital Group Logo">
+            </div>
+
             <input type="checkbox" id="nav-toggle" class="nav-toggle">
             <label for="nav-toggle" class="nav-toggle-label">
                 <span class="hamburger"></span>
@@ -369,7 +374,7 @@
                 <span class="section-subtitle">Track Record</span>
                 <h2>Performance History</h2>
                 <p style="color: var(--text-light); max-width: 700px; margin: 0 auto 40px auto;">
-                    The data below represents the historical performance of the core strategy utilized by IYSR Capital compared to the S&P 500 benchmark.
+                    The data below represents the historical performance of the core strategy utilized by SSCapital Group compared to the S&P 500 benchmark.
                 </p>
             </div>
 
@@ -383,7 +388,7 @@
                     <thead>
                         <tr>
                             <th>Year</th>
-                            <th>IYSR Strategy (Net)</th>
+                            <th>SSCapital Group Strategy (Net)</th>
                             <th>S&P 500 (SPY)</th>
                             <th>Difference</th>
                         </tr>
@@ -460,7 +465,7 @@
             <div class="text-center">
                 <span class="section-subtitle">Invest</span>
                 <h2>Request Offering Documents</h2>
-                <p>Access to IYSR Capital is strictly limited to Accredited Investors.</p>
+                <p>Access to SSCapital Group is strictly limited to Accredited Investors.</p>
             </div>
             
             <div class="contact-form-box">
@@ -502,8 +507,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <h2>IYSR CAPITAL</h2>
-                    <p>123 Financial District, Suite 100<br>New York, NY 10005<br>ir@iysrcapital.com</p>
+                    <div class="logo">
+                        <img src="sscapital_logo.png" alt="SSCapital Group Logo">
+                    </div>
+                    <p>123 Financial District, Suite 100<br>New York, NY 10005<br>ir@sscapitalgroup.com</p>
                 </div>
                 <div class="footer-links">
                     <h4>Navigate</h4>
@@ -516,13 +523,13 @@
 
             <div class="disclaimer">
                 <strong>IMPORTANT DISCLOSURE:</strong><br><br>
-                The information on this website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any interests in IYSR Capital (the "Fund"). Such an offer can only be made via the Confidential Private Placement Memorandum (PPM).
+                The information on this website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any interests in SSCapital Group (the "Fund"). Such an offer can only be made via the Confidential Private Placement Memorandum (PPM).
                 <br><br>
                 <strong>Accredited Investors Only:</strong> The Fund is offered under Rule 506(c) of Regulation D. This allows for general solicitation, but sales are strictly limited to "Accredited Investors" as defined by the SEC. Verification of accreditation status will be required prior to acceptance of any subscription.
                 <br><br>
                 <strong>Risk of Leverage & Options:</strong> This Fund employs leverage and options strategies which involve a high degree of risk. The use of leveraged ETFs can amplify losses as well as gains. Options trading involves specific risks including the potential for significant loss. Investors should have the financial ability and willingness to accept the risks associated with this investment.
             </div>
-            <p style="margin-top: 40px; text-align: center;">&copy; 2024 IYSR Capital Management, LLC. All rights reserved.</p>
+            <p style="margin-top: 40px; text-align: center;">&copy; 2024 SSCapital Group, LLC. All rights reserved.</p>
         </div>
     </footer>
 
