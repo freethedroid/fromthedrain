@@ -272,7 +272,63 @@
         }
         .team-member h4 { font-size: 1.25rem; margin-bottom: 5px; }
         .team-member span { color: var(--secondary); font-size: 0.9rem; display: block; margin-bottom: 15px; font-weight: 600; }
-        .team-member …</style>
+        .team-member p { font-size: 0.95rem; color: var(--text-light); }
+
+        /* --- CONTACT SECTION --- */
+        .contact { background-color: var(--white); }
+        .contact-form-box {
+            max-width: 600px;
+            margin: 40px auto 0;
+            padding: 40px;
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: var(--primary); }
+        input, select, textarea {
+            width: 100%; padding: 12px 15px; border: 1px solid var(--border-color);
+            border-radius: 4px; font-family: inherit; font-size: 1rem; color: var(--text-main);
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); }
+
+        /* --- FOOTER --- */
+        footer { 
+            background-color: var(--white); 
+            color: var(--text-light); 
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+        .footer-content {
+            display: grid; gap: 40px; margin-bottom: 40px;
+        }
+        @media (min-width: 768px) { .footer-content { grid-template-columns: 1fr 1fr; } }
+        
+        .footer-brand .logo img {
+             max-height: 90px;
+             margin-bottom: 15px;
+        }
+
+        .footer-links h4 { 
+            color: var(--primary); 
+            font-size: 1rem; 
+            margin-bottom: 15px; 
+            font-family: 'Inter', sans-serif; 
+        }
+        .footer-links p { margin-bottom: 10px; }
+        .footer-links a { color: var(--text-light); }
+        .footer-links a:hover { color: var(--secondary); }
+
+        .disclaimer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            line-height: 1.6;
+            color: #94a3b8;
+        }
+    </style>
 </head>
 <body>
 
@@ -341,7 +397,8 @@
                 </p>
             </div>
 
-            <div class="chart-placeholder"><img src="investment_growth.png" alt="Investment Growth">
+            <div class="chart-placeholder">
+                <img src="investment_growth.png" alt="Investment Growth">
             </div>
 
             <div class="table-container">
@@ -429,22 +486,22 @@
             </div>
             
             <div class="contact-form-box">
-                <form>
+                <form action="#" method="POST">
                     <div class="form-group">
-                        <label class="form-label">Full Name</label>
-                        <input type="text" required="">
+                        <label class="form-label" for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="full-name" required="">
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Email Address</label>
-                        <input type="email" required="">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required="">
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Phone Number</label>
-                        <input type="tel">
+                        <label class="form-label" for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Are you an Accredited Investor?</label>
-                        <select required="">
+                        <label class="form-label" for="accredited">Are you an Accredited Investor?</label>
+                        <select id="accredited" name="accredited-status" required="">
                             <option value="" disabled="" selected="">Select an option...</option>
                             <option value="yes-networth">Yes (Net Worth &gt; $1M)</option>
                             <option value="yes-income">Yes (Income &gt; $200k/$300k)</option>
@@ -453,8 +510,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                         <label class="form-label">Message / Questions</label>
-                        <textarea rows="4"></textarea>
+                         <label class="form-label" for="message">Message / Questions</label>
+                         <textarea id="message" name="message" rows="4"></textarea>
                     </div>
                     
                     <button type="submit" class="btn btn-gold" style="width: 100%;">Request PPM</button>
@@ -492,4 +549,5 @@
             <p style="margin-top: 40px; text-align: center;">© 2025 SSCapital Group, LLC. All rights reserved.</p>
         </div>
     </footer>
+
 </body></html>
