@@ -1,26 +1,20 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SSCapital Group | 506(c) Fund</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         /* --- NEW COLOR PALETTE --- */
         :root {
-            /* REPLACED BLACK WITH DEEP NAVY/SLATE */
             --primary: #0f172a; 
-            
-            /* REFINED GOLD TO MUTED BRONZE */
             --secondary: #d97706; 
             --secondary-dark: #b45309;
-            
-            /* UPDATED BACKGROUNDS */
-            --light-bg: #f1f5f9; /* Cool slate-gray tint */
+            --light-bg: #f1f5f9; 
             --white: #ffffff;
-            
-            /* SOFTER TEXT COLORS */
-            --text-main: #334155; /* Slate 700 */
-            --text-light: #64748b; /* Slate 500 */
-            
+            --text-main: #334155; 
+            --text-light: #64748b; 
             --border-color: #cbd5e1;
             --max-width: 1200px;
             --section-spacing: 80px;
@@ -168,7 +162,6 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            /* Updated Gradient: Now uses the Deep Navy Blue instead of Black */
             background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.85)), url('https://source.unsplash.com/random/1920x1080/?finance,skyscraper,city') no-repeat center center/cover;
             color: var(--white);
             text-align: center;
@@ -186,7 +179,6 @@
         @media (min-width: 768px) { .hero-btns { flex-direction: row; justify-content: flex-start; } }
 
         /* --- STRATEGY SECTION --- */
-        /* Now uses the new Primary (Navy) instead of Black */
         .strategy { background-color: var(--primary); color: var(--white); }
         .strategy h2 { color: var(--white); }
         .strategy p.lead { color: #94a3b8; max-width: 700px; margin-bottom: 50px; }
@@ -202,18 +194,6 @@
         .strategy-item h3::before { content: '📈'; font-size: 1.5rem; margin-right: 10px; }
         .strategy-item:last-child h3::before { content: '🛡️'; }
         .strategy-item p { color: #cbd5e1; }
-
-        .diagram-placeholder {
-            margin-top: 60px;
-            border: 2px dashed #334155;
-            border-radius: var(--border-radius);
-            padding: 80px 20px;
-            text-align: center;
-            color: #64748b;
-            font-weight: 600;
-            letter-spacing: 1px;
-            background: rgba(255,255,255,0.02);
-        }
 
         /* --- PERFORMANCE SECTION --- */
         .performance { background-color: var(--white); }
@@ -233,7 +213,16 @@
             max-width: 100%;
             height: auto;
             border-radius: 4px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Optional: Adds a nice shadow */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        /* New utility for chart footnote */
+        .chart-note {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-style: italic;
         }
 
         .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -393,12 +382,15 @@
                 <span class="section-subtitle">Track Record</span>
                 <h2>Performance History</h2>
                 <p style="color: var(--text-light); max-width: 700px; margin: 0 auto 40px auto;">
-                    The data below represents the historical performance of the pre-fund strategy utilized by SSCapital Group compared to the S&amp;P 500 benchmark.
+                    The data below represents the historical performance of the pre-fund strategy utilized by SSCapital Group compared to the S&P 500 benchmark.
                 </p>
             </div>
 
             <div class="chart-placeholder">
                 <img src="investment_growth.png" alt="Investment Growth">
+                <span class="chart-note">
+                    *Results backtested from 2005 to 2019. Numbers from 2020 through 2024 represent real trading data.
+                </span>
             </div>
 
             <div class="table-container">
@@ -407,7 +399,7 @@
                         <tr>
                             <th>Year</th>
                             <th>SSCapital Group Strategy (Net)</th>
-                            <th>S&amp;P 500 (SPY)</th>
+                            <th>S&P 500 (SPY)</th>
                             <th>Difference</th>
                         </tr>
                     </thead>
@@ -489,11 +481,11 @@
                 <form action="#" method="POST">
                     <div class="form-group">
                         <label class="form-label" for="full-name">Full Name</label>
-                        <input type="text" id="full-name" name="full-name" required="">
+                        <input type="text" id="full-name" name="full-name" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required="">
+                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="phone">Phone Number</label>
@@ -501,10 +493,10 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="accredited">Are you an Accredited Investor?</label>
-                        <select id="accredited" name="accredited-status" required="">
-                            <option value="" disabled="" selected="">Select an option...</option>
-                            <option value="yes-networth">Yes (Net Worth &gt; $1M)</option>
-                            <option value="yes-income">Yes (Income &gt; $200k/$300k)</option>
+                        <select id="accredited" name="accredited-status" required>
+                            <option value="" disabled selected>Select an option...</option>
+                            <option value="yes-networth">Yes (Net Worth > $1M)</option>
+                            <option value="yes-income">Yes (Income > $200k/$300k)</option>
                             <option value="no">No</option>
                             <option value="unsure">Unsure</option>
                         </select>
@@ -544,10 +536,11 @@
                 <br><br>
                 <strong>Accredited Investors Only:</strong> The Fund is offered under Rule 506(c) of Regulation D. This allows for general solicitation, but sales are strictly limited to "Accredited Investors" as defined by the SEC. Verification of accreditation status will be required prior to acceptance of any subscription.
                 <br><br>
-                <strong>Risk of Leverage &amp; Options:</strong> This Fund employs leverage and options strategies which involve a high degree of risk. The use of leveraged ETFs can amplify losses as well as gains. Options trading involves specific risks including the potential for significant loss. Investors should have the financial ability and willingness to accept the risks associated with this investment.
+                <strong>Risk of Leverage & Options:</strong> This Fund employs leverage and options strategies which involve a high degree of risk. The use of leveraged ETFs can amplify losses as well as gains. Options trading involves specific risks including the potential for significant loss. Investors should have the financial ability and willingness to accept the risks associated with this investment.
             </div>
             <p style="margin-top: 40px; text-align: center;">© 2025 SSCapital Group, LLC. All rights reserved.</p>
         </div>
     </footer>
 
-</body></html>
+</body>
+</html>
