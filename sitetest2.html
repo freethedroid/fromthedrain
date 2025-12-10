@@ -164,19 +164,39 @@
         .hero {
             background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.85)), url('https://source.unsplash.com/random/1920x1080/?finance,skyscraper,city') no-repeat center center/cover;
             color: var(--white);
-            text-align: center;
+            text-align: center; /* Ensures content is centered */
             padding: 120px 0;
         }
-        @media (min-width: 768px) { .hero { text-align: left; padding: 180px 0; } }
+        
+        /* Updated: Ensure center alignment persists on desktop */
+        @media (min-width: 768px) { 
+            .hero { 
+                text-align: center; 
+                padding: 180px 0; 
+            } 
+        }
 
         .hero h1 { color: var(--white); font-size: 2.5rem; }
         @media (min-width: 768px) { .hero h1 { font-size: 3.5rem; } }
         
+        /* Updated: Ensure margins stay auto on desktop to keep text centered */
         .hero p { color: #e2e8f0; font-size: 1.1rem; max-width: 600px; margin: 0 auto 40px auto; }
-        @media (min-width: 768px) { .hero p { margin: 0 0 40px 0; font-size: 1.25rem; } }
+        @media (min-width: 768px) { 
+            .hero p { 
+                margin: 0 auto 40px auto; 
+                font-size: 1.25rem; 
+            } 
+        }
 
         .hero-btns { display: flex; flex-direction: column; gap: 15px; justify-content: center; }
-        @media (min-width: 768px) { .hero-btns { flex-direction: row; justify-content: flex-start; } }
+        
+        /* Updated: Changed justify-content to center for desktop */
+        @media (min-width: 768px) { 
+            .hero-btns { 
+                flex-direction: row; 
+                justify-content: center; 
+            } 
+        }
 
         /* --- STRATEGY SECTION --- */
         .strategy { background-color: var(--primary); color: var(--white); }
